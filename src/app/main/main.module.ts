@@ -5,6 +5,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {MovieListComponent} from "./movie-list/movie-list.component";
 import {MovieFormComponent} from "./movie-form/movie-form.component";
 import {MovieDetailsComponent} from "./movie-details/movie-details.component";
+import {ApiService} from "../api.service";
 
 
 const routes: Routes = [
@@ -23,7 +24,10 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    ApiService
+  ]
 })
 export class MainModule {
 }
