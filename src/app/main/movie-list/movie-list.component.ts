@@ -8,7 +8,7 @@ import {ApiService} from "../../api.service";
 })
 export class MovieListComponent implements OnInit {
 
-  movies = []
+  movies;
 
   constructor(
     private apiService: ApiService
