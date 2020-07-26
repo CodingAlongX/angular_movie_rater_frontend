@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "movie-rater"
+    }
+  },
+  "defaultProject": "movie-rater",
+  "cli": {
+    "analytics": "afafeeb9-211a-443c-92e9-04c94f5f1071"
+  }
 }
