@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import {ApiService} from "../../api.service";
+import {Movie} from "../../models/movie";
 
 @Component({
   selector: 'app-movie-details',
@@ -9,10 +10,9 @@ import {ApiService} from "../../api.service";
 })
 export class MovieDetailsComponent implements OnInit {
 
-  @Input()
-  movie;
+  @Input() movie: Movie;
 
-  @Output() updateMovie = new EventEmitter()
+  @Output() updateMovie = new EventEmitter<Movie>()
 
   faStar = faStar;
 
@@ -43,7 +43,7 @@ export class MovieDetailsComponent implements OnInit {
 
   getDetails() {
     this.apiService.getMovie(this.movie.id).subscribe(
-      movie => {
+      (movie: Movie) => {
         this.updateMovie.emit(movie)
       },
       error => {
