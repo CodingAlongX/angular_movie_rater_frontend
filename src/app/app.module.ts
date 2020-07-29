@@ -22,7 +22,7 @@ const routes: Routes = [
     AuthModule,
     MainModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [RouterModule],
   providers: [
