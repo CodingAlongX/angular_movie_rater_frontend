@@ -1,7 +1,7 @@
 <div *ngFor="let movie of movies" class="movie-item">
   <h3 (click)="movieClicked(movie)">{{movie.title}}</h3>
-  <fa-icon [icon]="faEdit"></fa-icon>
-  <fa-icon [icon]="faTrash" class="crimson"></fa-icon>
+  <fa-icon [icon]="faEdit" (click)="editMovie(movie)"></fa-icon>
+  <fa-icon [icon]="faTrash" class="crimson" (click)="deleteMovie(movie)"></fa-icon>
 
 </div>
-<button>New Movie</button>
+<button (click)="createNewMovie()">New Movie</button>

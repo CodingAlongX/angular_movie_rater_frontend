@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieFormComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit(): void {
