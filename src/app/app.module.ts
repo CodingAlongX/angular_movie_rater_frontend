@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {AuthModule} from "./auth/auth.module";
 import {MainModule} from "./main/main.module";
 import {HttpClientModule} from "@angular/common/http";
-
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'movies'}
@@ -23,6 +23,7 @@ const routes: Routes = [
     MainModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   exports: [RouterModule],
   providers: [
