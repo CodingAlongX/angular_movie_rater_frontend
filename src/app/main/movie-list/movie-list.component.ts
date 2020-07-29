@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {faEdit, faStar, faTrash} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-movie-list',
@@ -12,6 +13,8 @@ export class MovieListComponent implements OnInit {
 
   @Output()
   selectMovie = new EventEmitter()
+  faEdit = faEdit
+  faTrash = faTrash
 
   constructor() {
   }
