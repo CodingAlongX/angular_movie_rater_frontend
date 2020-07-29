@@ -1,3 +1,17 @@
-.orange {
+fa-icon.orange {
   color: orange;
+}
+
+fa-icon.purple {
+  color: purple;
+}
+
+#rate-container {
+  border-top: 2px solid purple;
+}
+
+
+#rate-container fa-icon {
+  cursor: pointer;
+  font-size: 2em;
 }
