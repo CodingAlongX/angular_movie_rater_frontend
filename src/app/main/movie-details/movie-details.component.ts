@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import {ApiService} from "../../api.service";
 
@@ -11,6 +11,8 @@ export class MovieDetailsComponent implements OnInit {
 
   @Input()
   movie;
+
+  @Output() updateMovie = new EventEmitter()
 
   faStar = faStar;
 
@@ -31,7 +33,18 @@ export class MovieDetailsComponent implements OnInit {
   rateClicked(rate: number) {
     this.apiService.rateMovie(rate, this.movie.id).subscribe(
       result => {
-        console.log(result)
+        this.getDetails()
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+
+  getDetails() {
+    this.apiService.getMovie(this.movie.id).subscribe(
+      movie => {
+        this.updateMovie.emit(movie)
       },
       error => {
         console.log(error)
