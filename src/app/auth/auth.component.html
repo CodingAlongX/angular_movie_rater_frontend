@@ -1,1 +1,12 @@
-<p>auth works!</p>
+<form [formGroup]="authForm" (submit)="saveForm()">
+  <label>Username</label>
+  <br>
+  <input type="text" formControlName="username">
+  <br>
+
+  <label>Password</label>
+  <br>
+  <input type="password" formControlName="password">
+  <br>
+  <button type="submit" [disabled]="formDisabled()">Login</button>
+</form>
