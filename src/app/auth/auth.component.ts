@@ -21,6 +21,8 @@ export class AuthComponent implements OnInit {
     password: new FormControl('')
   })
 
+  registerMode = false
+
   constructor(
     private apiService: ApiService,
     private cookieService: CookieService,
@@ -37,6 +39,23 @@ export class AuthComponent implements OnInit {
   }
 
   saveForm() {
+    if (!this.registerMode) {
+      this.loginUser()
+    } else {
+      this.apiService.registerUser(this.authForm.value).subscribe(
+        result => {
+          console.log(result)
+          this.loginUser()
+        },
+        error => {
+          console.log(error)
+        }
+      )
+    }
+
+  }
+
+  loginUser() {
     this.apiService.loginUser(this.authForm.value).subscribe(
       (result: TokenObj) => {
         this.cookieService.set("mr-token", result.token)

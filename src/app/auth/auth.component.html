@@ -8,5 +8,11 @@
   <br>
   <input type="password" formControlName="password">
   <br>
-  <button type="submit" [disabled]="formDisabled()">Login</button>
+  <button type="submit" [disabled]="formDisabled()">
+    <span *ngIf="!registerMode">Login</span>
+    <span *ngIf="registerMode">Register</span>
+  </button>
 </form>
+<br>
+<span *ngIf="!registerMode">Don't have an account? Register <a (click)="registerMode = true">here</a></span>
+<span *ngIf="registerMode">Already have an account? Login <a (click)="registerMode = false">here</a></span>

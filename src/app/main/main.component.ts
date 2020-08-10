@@ -84,4 +84,9 @@ export class MainComponent implements OnInit {
     this.editedMovie = null;
 
   }
+
+  logout() {
+    this.cookieService.delete('mr-token');
+    this.router.navigate(['/auth'])
+  }
 }
