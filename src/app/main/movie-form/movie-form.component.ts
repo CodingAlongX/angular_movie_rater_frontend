@@ -57,4 +57,12 @@ export class MovieFormComponent implements OnInit {
     }
 
   }
+
+  formDisabled() {
+    if (this.movieForm.value.title.length && this.movieForm.value.description.length) {
+      return false
+    } else {
+      return true
+    }
+  }
 }

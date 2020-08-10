@@ -7,6 +7,7 @@ import {AuthModule} from "./auth/auth.module";
 import {MainModule} from "./main/main.module";
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'movies'}
@@ -17,14 +18,15 @@ const routes: Routes = [
     AppComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AuthModule,
-    MainModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AuthModule,
+        MainModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        ReactiveFormsModule,
+        FontAwesomeModule,
+    ],
   exports: [RouterModule],
   providers: [
     HttpClientModule
