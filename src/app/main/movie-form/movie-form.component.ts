@@ -12,9 +12,11 @@ import {ApiService} from "../../api.service";
 export class MovieFormComponent implements OnInit {
 
   movieForm;
+  id = null;
 
   @Input() set movie(val: Movie) {
-    console.log(val.title)
+    this.id = val.id;
+    console.log(this.id);
     this.movieForm = new FormGroup({
       title: new FormControl(val.title),
       description: new FormControl(val.description)
@@ -31,14 +33,25 @@ export class MovieFormComponent implements OnInit {
   }
 
   saveForm() {
-    console.log(this.movieForm.value)
-    this.apiService.createMovie(this.movieForm.value.title, this.movieForm.value.description).subscribe(
-      result => {
-        console.log(result)
-      },
-      error => {
-        console.log(error)
-      }
-    )
+    if (this.id){
+      this.apiService.updateMovie(this.id, this.movieForm.value.title, this.movieForm.value.description).subscribe(
+        result => {
+          console.log(result)
+        },
+        error => {
+          console.log(error)
+        }
+      )
+    } else {
+      this.apiService.createMovie(this.movieForm.value.title, this.movieForm.value.description).subscribe(
+        result => {
+          console.log(result)
+        },
+        error => {
+          console.log(error)
+        }
+      )
+    }
+
   }
 }
